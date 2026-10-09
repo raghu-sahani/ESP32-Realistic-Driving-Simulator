@@ -8,7 +8,25 @@
 <div class="scene-actions"><button id="camera" title="C switches camera">Camera <kbd>C</kbd></button><button id="pause" title="P pauses driving">Pause <kbd>P</kbd></button></div>
 <div id="incident" class="incident" hidden><span class="eyebrow" id="incidentType">COLLISION</span><h2 id="incidentTitle">Impact detected</h2><p id="incidentText"></p><button id="restart" class="primary">Restart drive</button></div>
 <div id="paused" class="pause-notice" hidden>Paused <span>Click Resume or press P</span></div>
-<div class="bottom-hud"><div class="speedometer"><div class="speed-top"><span id="gear">N</span><span>km/h</span></div><output id="speed">0</output><div class="rpm-track"><span id="speedBar"></span></div><div class="dial-labels"><span>0</span><span>100</span><span>200</span></div></div><div class="drive-hint" id="driveHint">Hold W / ↑ or the accelerator button to drive</div><div class="steering-panel"><span class="eyebrow">STEERING</span><div class="steering-numbers"><span>−100</span><output id="steer">0</output><span>+100</span></div><div class="steering-track"><span id="needle"></span></div><div class="pedals"><span id="acceleratorLed">ACCELERATOR <b id="accelValue">0%</b></span><span id="brakeLed">BRAKE <b id="brakeValue">0%</b></span></div></div></div>
+<div class="bottom-hud">
+<div class="dashboard-cluster">
+  <div class="dial rpm-dial">
+    <div class="dial-value"><output id="rpm">0</output><small>RPM</small></div>
+    <svg viewBox="0 0 100 50" class="dial-arc"><path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#2b3d4b" stroke-width="6" stroke-linecap="round"/><path id="rpmArc" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--mint)" stroke-width="6" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"/></svg>
+  </div>
+  <div class="center-info">
+    <div class="gear-display"><span id="gear">P</span></div>
+    <div class="speed-display"><output id="speed">0</output><small>KM/H</small></div>
+  </div>
+  <div class="dial speed-dial">
+    <div class="pedals-cluster">
+      <div class="pedal-bar throttle"><div class="bar-bg"><div id="throttleFill" class="bar-fill"></div></div><small>THR</small></div>
+      <div class="pedal-bar brake"><div class="bar-bg"><div id="brakeFill" class="bar-fill"></div></div><small>BRK</small></div>
+    </div>
+  </div>
+</div>
+<div class="steering-panel"><span class="eyebrow">STEERING</span><div class="steering-numbers"><span>−100</span><output id="steer">0</output><span>+100</span></div><div class="steering-track"><span id="needle"></span></div></div>
+</div>
 </section>
 <section class="toolbar"><div id="message" role="status">Ready. Connect the ESP32 or drive with W / S and A / D.</div><div class="settings"><label for="sensitivity">Steering</label><input id="sensitivity" type="range" min="0.3" max="1.4" step="0.05" value="0.8"><output id="sensitivityValue">0.80×</output></div></section>
 <section class="control-strip" aria-label="Driving controls"><div><kbd>W</kbd> / <kbd>↑</kbd> Accelerate <span>GPIO 26 button</span></div><div><kbd>S</kbd> / <kbd>↓</kbd> Brake <span>GPIO 27 button</span></div><div><kbd>A</kbd> / <kbd>D</kbd> Test steering <span>Encoder when connected</span></div><div><kbd>SW</kbd> Center steering <span>Encoder push switch</span></div></section>
